@@ -5,4 +5,6 @@
 
 ## Content
 1. Recursion
+   . Factorial
+	
 2. Backtracking
