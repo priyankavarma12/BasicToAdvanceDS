@@ -15,8 +15,12 @@ public class FirstIndexOfArray {
         }
 
         int data = scn.nextInt();
+        System.out.println("First Index of Array ");
         int fi = firstIndex(arr, 0, data);
         System.out.println(fi);
+        System.out.println("Last Index of Array ");
+        int li = lastIndex(arr, 0, data);
+        System.out.println(li);
 
     }
 
@@ -32,9 +36,25 @@ public class FirstIndexOfArray {
         }
     }
 
+    public static int lastIndex(int[] arr, int idx, int x){
+        if(idx == arr.length){
+            return -1;
+        }
+        int li = lastIndex(arr, idx + 1, x);
+        if(li == -1){
+            if(arr[idx] == x){
+                return idx;
+            } else {
+                return -1;
+            }
+        } else {
+            return li;
+        }
+    }
+
 }
 
-/**
+/** First & Last Index of Array using recursion
 Input
 n=6
 15
@@ -45,5 +65,8 @@ n=6
 9
 4
 Output
-3
+ First Index of Array
+ 3
+ Last Index of Array
+ 4
  */
