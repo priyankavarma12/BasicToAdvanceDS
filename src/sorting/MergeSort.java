@@ -67,6 +67,7 @@ public class MergeSort {
 
 }
 
+
 /** Merge Sort
 n = 5
 7
@@ -74,5 +75,19 @@ n = 5
 4
 1
 3
-Sorted Array -> -2 1 3 4 7
+ Merging these two arrays
+ left array -> 7
+ right array -> -2
+ Merging these two arrays
+ left array -> -2 7
+ right array -> 4
+ Merging these two arrays
+ left array -> 1
+ right array -> 3
+ Merging these two arrays
+ left array -> -2 4 7
+ right array -> 1 3
+ Sorted Array -> -2 1 3 4 7
+ 
+ Sorted Array -> -2 1 3 4 7
  */
