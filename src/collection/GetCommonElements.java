@@ -1,0 +1,77 @@
+package collection;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class GetCommonElements {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner( System.in );
+        System.out.println("Size of n1");
+        int n1 = scn.nextInt();
+        System.out.println("Array of a1");
+        int [] a1 = new int[n1];
+        for(int i=0;i<a1.length;i++){
+            a1[i] = scn.nextInt();
+        }
+        System.out.println("Size of n2");
+        int n2 = scn.nextInt();
+        System.out.println("Array of a2");
+        int [] a2 = new int[n2];
+        for(int i=0;i<a2.length;i++){
+            a2[i] = scn.nextInt();
+        }
+        System.out.println("Common Elements ::");
+        getFrequency(a1, a2);
+    }
+
+    private static Map<Integer, Integer> getFrequency(int [] a1, int[] a2){
+        Map<Integer, Integer> fmap = new HashMap<>();
+        for(int val : a1){
+            if(fmap.containsKey( val )){
+                int of = fmap.get( val );
+                int nf = of + 1;
+                fmap.put( val, nf );
+            } else {
+                fmap.put( val, 1 );
+            }
+        }
+        //remove the common elements from a2 and print
+        for(int val : a2){
+            if(fmap.containsKey( val )){
+                System.out.println(val);
+                fmap.remove( val );
+            }
+        }
+        return fmap;
+    }
+}
+
+/** Get Common Elements from Arrays
+Size of n1
+7
+Array of a1
+1
+1
+2
+2
+2
+3
+5
+Size of n2
+7
+Array of a2
+1
+1
+1
+2
+2
+4
+5
+Common Elements ::
+1
+2
+5
+ */
