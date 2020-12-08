@@ -2,8 +2,8 @@ package collection;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-//Time complexity should be O(n)
 public class GetCommonElements {
 
     public static void main(String[] args) {
@@ -25,8 +25,10 @@ public class GetCommonElements {
         }
         System.out.println("Common Elements ::");
         getFrequency(a1, a2);
+        //getCommonElements();
 
-      //getCommonElements();
+        // System.out.println("Get Union of Elements ::");
+        // getUnionElements();
     }
 
     private static void getFrequency(int [] a1, int[] a2){
@@ -56,6 +58,15 @@ public class GetCommonElements {
          List<Integer> finalList = list1.stream().filter( list2::contains ).distinct().collect( Collectors.toList());
          finalList.stream().forEach(System.out::println);
      }
+
+     /** Using Java 8 to get union of  Elements */
+     private static void getUnionElements(){
+         List<Integer> list1 = Arrays.asList(1,1,2,2,2,3,5);
+         List<Integer> list2 = Arrays.asList(1,1,1,2,2,4,5);
+         List<Integer> finalList = Stream.of( list1, list2 ).flatMap( l -> l.stream() ).collect( Collectors.toList());
+         System.out.println(finalList);
+     }
+
 
 }
 
