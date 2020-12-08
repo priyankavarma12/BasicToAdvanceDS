@@ -1,9 +1,9 @@
 package collection;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
+//Time complexity should be O(n)
 public class GetCommonElements {
 
     public static void main(String[] args) {
@@ -25,9 +25,11 @@ public class GetCommonElements {
         }
         System.out.println("Common Elements ::");
         getFrequency(a1, a2);
+
+      //getCommonElements();
     }
 
-    private static Map<Integer, Integer> getFrequency(int [] a1, int[] a2){
+    private static void getFrequency(int [] a1, int[] a2){
         Map<Integer, Integer> fmap = new HashMap<>();
         for(int val : a1){
             if(fmap.containsKey( val )){
@@ -45,8 +47,16 @@ public class GetCommonElements {
                 fmap.remove( val );
             }
         }
-        return fmap;
     }
+
+    /** Using Java 8 to get common elements */
+     private static void getCommonElements(){
+         List<Integer> list1 = Arrays.asList(1,1,2,2,2,3,5);
+         List<Integer> list2 = Arrays.asList(1,1,1,2,2,4,5);
+         List<Integer> finalList = list1.stream().filter( list2::contains ).distinct().collect( Collectors.toList());
+         finalList.stream().forEach(System.out::println);
+     }
+
 }
 
 /** Get Common Elements from Arrays
